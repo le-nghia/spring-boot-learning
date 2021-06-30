@@ -1,0 +1,13 @@
+SPRING BOT
+1.	Khái niệm Dependency Injection?
+-	Là việc các Object nên phụ thuộc vào các Abstraction class ( Lớp trừu tượng ) và thể hiện chi tiết của nó sẻ được inject vào đối tượng lúc runtime.
+a.	Các cách để inject Dependency  vào 1 đối tượng:
+-	Contructor Injection: 
+-	Setter Injection: 
+-	Interface Injection: Mỗi class muốn inject cái gì thì phải Implement một Interface chứa một hàm inject(xx) nào đó.
+2.	@Component và @Autowired
+a.	@Component:
+-	Là 1 Annotation  ( chú thích ) trêm 1 class để giúp Spring biết nó là một Bean.
+-	Quá trình chạy của @Component là khi run thì dò tìm các class cùng cấp chạy bởi úng dụng Spring Boot, sau khi tìm thấy class được đánh dấu bởi @Component thì tạo new và đưa vào ApplicationContext để thực hiện.
+b.	@Autowired:
+-	 
