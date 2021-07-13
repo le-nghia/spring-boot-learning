@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bank</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container p-3 my-3 border">
+    <!-- Include _menu.html -->
+    <th:block th:include="/_menu"></th:block>
+
+        <h2>Send Money</h2>
+        <ul>
+            <li>1 - Le Nghia</li>
+            <li>2 - Thai Duong</li>
+            <li>3 - Thong</li>
+        </ul>
+
+        <div th:if="${errorMessage!=null}"
+             style="color:red;font-style:italic" th:utext="${errorMessage}">
+
+        </div>
+
+        <form th:action="@{/sendMoney}" th:object="${sendMoneyForm}" method="POST">
+            <table class="form-group">
+
+                <tr>
+                    <td>From Bank Account Id</td>
+                    <td><input class="form-control" type="text" th:field="*{formAccountId}"/></td>
+                </tr>
+                <tr>
+                    <td>To Bank Account Id</td>
+                    <td><input class="form-control" type="text" th:field="*{toAccountId}"/></td>
+                </tr>
+                <tr>
+                    <td>Amount</td>
+                    <td><input class="form-control" type="text" th:field="*{amount}" /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input class="btn btn-primary" type="submit" value="Send"/></td>
+                </tr>
+            </table>
+
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Bank</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+            th, td {
+                padding: 5px;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="container  ">
+
+            <!-- Include _menu.html -->
+            <th:block th:include="/_menu"></th:block>
+
+            <h2>Accounts</h2>
+
+            <!--<table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>Balance</th>
+                </tr>
+                <tr th:each="accountInfo : ${accountInfos}">
+                    <td th:utext="${accountInfo.id}">..</td>
+                    <td th:utext="${accountInfo.fullName}">..</td>
+                    <td th:utext="${accountInfo.balance}">..</td>
+                </tr>
+
+            </table>-->
+
+            <div class="nav navbar">
+
+                <div th:if="${accountInfos != null}" th:utext="${msg}"></div>
+
+                <div th:each="accountInfo : ${accountInfos}">
+
+                    <div class="p-3 my-3 border">
+                        <a href="#" style="text-align: center;">Thông tin thẻ</a><br/>
+                        <span>Số tài khoản: </span><b th:utext="${accountInfo.id}"> </b> <br/>
+                        <span>Chủ tài khoản: </span><b th:utext="${accountInfo.fullName}"> </b> <br/>
+
+                        <span>Số dư: <b th:utext="${accountInfo.balance}">$ </b></span><br/>
+                        <a th:href="@{/sendMoney}">Chuyển khoản</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
